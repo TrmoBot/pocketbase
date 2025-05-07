@@ -1,15 +1,12 @@
 FROM alpine:3.19
 
 # Install dependencies
-RUN apk add --no-cache \
-    wget \
-    unzip \
-    ca-certificates
+RUN apk add --no-cache wget tar
 
-# Download and install PocketBase (using direct tar.gz download)
+# Download and install PocketBase
 RUN wget -qO- https://github.com/pocketbase/pocketbase/releases/download/v0.22.4/pocketbase_0.22.4_linux_amd64.tar.gz | tar xz -C /usr/local/bin/
 
-# Set up data volume
+# Set up persistent storage
 VOLUME /pb_data
 
 # Expose port
