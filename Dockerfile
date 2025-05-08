@@ -10,4 +10,4 @@ RUN wget -q https://github.com/pocketbase/pocketbase/releases/download/v0.22.3/p
 
 VOLUME /pb_data
 EXPOSE 8090
-CMD ["pocketbase", "serve", "--http=127.0.0.1:8090", "--dir=/pb_data"]
+CMD ["pocketbase", "serve", "--http=0.0.0.0:8090", "--dir=/pb_data"]
